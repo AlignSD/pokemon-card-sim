@@ -5,6 +5,11 @@ export default createStore({
     sets: [
     ],
   },
+  getters: {
+    setsByRelease(state) {
+      return state.sets.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+    },
+  },
   mutations: {},
   actions: {
     async getSets({ state }) {
