@@ -13,7 +13,7 @@ export default createStore({
   mutations: {},
   actions: {
     async getSets({ state }) {
-      const response = await fetch('https://api.pokemontcg.io/v2/sets', { headers: new Headers({ 'X-Api-Key': '70681ba2-3e30-409e-bf96-dd7afb31d2eb' }) });
+      const response = await fetch('https://api.pokemontcg.io/v2/sets', { headers: new Headers({ 'X-Api-Key': 'Blank' }) });
       // console.log(response);
       // console.log(response.headers.append({ headers: 'Headers', value: 'afafafaf' }));
       // console.log(response.headers.set());
