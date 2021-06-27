@@ -4,10 +4,14 @@
       <input v-model="filter">
     </form>
     <transition-group name="list" tag="div" class="sets">
-       <div class="set list-item" v-for="set in sets" :key="set.id">
+      <router-link
+        class="set list-item"
+        v-for="set in sets"
+        :key="set.id"
+        :to="{ name: 'Pack', params: { setid: set.id } }">
         <img class="set-logo" :src="set.images.logo" >
         <h3>{{set.name}}</h3>
-      </div>
+      </router-link>
     </transition-group>
   </div>
 </template>
@@ -33,7 +37,6 @@ export default {
         .filter((set) => set.name.match(new RegExp(regex)));
     });
 
-    store.dispatch('getSets');
     return {
       sets,
       filter,
@@ -62,6 +65,8 @@ export default {
   align-items: center;
   cursor: pointer;
   transition: transform 175ms ease-in-out;
+  text-decoration: none;
+  color: black;
 }
 
 .set:hover {
@@ -84,11 +89,12 @@ export default {
 }
 
 .list-enter-active, .list-leave-active {
-  transition: all 1s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .list-enter, .list-leave-to {
   opacity: 0;
-  transform: translateY(30px);
+  // transform: translateY(30px);
+  transform: scale(0);
 }
 </style>
