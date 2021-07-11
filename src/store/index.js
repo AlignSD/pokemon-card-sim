@@ -51,15 +51,14 @@ export default createStore({
     async getCards({ state }, setid) {
       state.loadingCards = true;
       // TODO: get all pages of data if there are more
-      const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=set.id:${setid}`, { headers: new Headers({ 'X-Api-Key': '70681ba2-3e30-409e-bf96-dd7afb31d2eb' }) });
+      const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=set.id:${setid}`, { headers: new Headers({ 'X-Api-Key': 'Blank' }) });
       const json = await response.json();
       console.log(json, 'getCards');
       state.cards = json.data;
       state.loadingCards = false;
     },
     async getSets({ state }) {
-      state.loading = true;
-      const response = await fetch('https://api.pokemontcg.io/v2/sets', { headers: new Headers({ 'X-Api-Key': '70681ba2-3e30-409e-bf96-dd7afb31d2eb' }) });
+      const response = await fetch('https://api.pokemontcg.io/v2/sets', { headers: new Headers({ 'X-Api-Key': 'Blank' }) });
       // console.log(response);
       // console.log(response.headers.append({ headers: 'Headers', value: 'afafafaf' }));
       // console.log(response.headers.set());
