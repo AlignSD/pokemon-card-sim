@@ -49,6 +49,7 @@ export default {
       const cardsWithoutEnergy = cards1.filter((card) => card.supertype !== 'Energy');
       const randomCards = new Set();
       while (randomCards.size < count) {
+        console.log(randomCards, 'lookhererererer');
         const randomCard = cardsWithoutEnergy[Math.floor(Math
           .random() * cardsWithoutEnergy.length - 1)];
         randomCards.add(randomCard.id);
